@@ -144,7 +144,7 @@ test.describe( `[${host}] Authentication: (${screenSize}) @parallel @jetpack`, f
 			test.describe( 'Can request a magic link email by entering the email of an account which does not have a password defined', function() {
 				let magicLoginLink, loginFlow, magicLinkEmail, emailClient;
 				test.before( function () {
-					loginFlow = new LoginFlow( driver, [ '+passwordless',  '+2fa' ] );
+					loginFlow = new LoginFlow( driver, [ '+passwordless',  '+2fa-sms' ] );
 					emailClient = new EmailClient( get( loginFlow.account, 'mailosaur.inboxId' ) );
 					return loginFlow.login();
 				} );
@@ -210,6 +210,7 @@ test.describe( `[${host}] Authentication: (${screenSize}) @parallel @jetpack`, f
 			} );
 		} );
 	}
+
 } );
 
 
